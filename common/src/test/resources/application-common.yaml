@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: base-common
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:13306/base?useSSL=false&allowPublicKeyRetrieval=true&connectionTimeZone=SERVER
+    username: root
+    password: root
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      max-lifetime: 900000
+      keepalive-time: 30000
+      connection-test-query: SELECT CASE WHEN @@read_only + @@innodb_read_only = 0 THEN 1 ELSE (SELECT table_name FROM information_schema.tables) END AS `1`
+      maximum-pool-size: 4
+      leak-detection-threshold: 120000
+  jackson:
+    time-zone: Asia/Tokyo
+
+aws:
+  s3:
+    endpoint: http://localhost:29090
+    region: us-east-1
+    is-iam-role-on: false
+    access-key: minio
+    secret-key: minio123
+    bucket-name: storage
+    is-cdn-on: false
+    key-pair-id: test-key-pair-id
+    private-key: dGVzdA==
+    cdn-endpoint: http://localhost:29090/
+
+virtual-datetime:
+  is-virtual-datetime-on: true

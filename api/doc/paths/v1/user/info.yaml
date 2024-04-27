@@ -1,0 +1,61 @@
+get:
+  summary: "ユーザー情報取得"
+  description: "ユーザー情報を返却する"
+  operationId: "getUserInfo"
+  tags:
+    - UserSetting
+  security:
+    - authenticationStatus: [ "REQUIRED_CHANGE_PASSWORD", "AUTHENTICATED" ]
+      authority: [ "USER", "ADMINISTRATOR" ]
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - clientUserId
+              - clientUserLoginId
+              - userName
+              - authority
+              - userStatus
+              - authenticationStatus
+            properties:
+              clientUserId:
+                type: integer
+                format: int64
+                description: "クライアントユーザーID"
+                example: 1
+              clientUserLoginId:
+                type: string
+                description: "クライアントユーザーログインID"
+                example: "base"
+              userName:
+                type: string
+                description: "ユーザー名"
+                example: "テストアカウント"
+              emailAddress:
+                type: string
+                description: "メールアドレス"
+                example: "sample@example.com"
+              authority:
+                type: string
+                enum: [ "USER", "ADMINISTRATOR" ]
+                description: "権限"
+                example: "USER"
+              userStatus:
+                type: string
+                enum: [ "ACTIVE", "INVITED", "INACTIVE" ]
+                description: "ユーザー状態"
+                example: "ACTIVE"
+              authenticationStatus:
+                type: string
+                enum: [ "AUTHENTICATED", "REQUIRED_CHANGE_PASSWORD" ]
+                description: "ユーザー認証状態"
+                example: "AUTHENTICATED"
+    '401':
+      $ref: "../../../components/responses/validation_failed.yaml"
+    '403':
+      $ref: "../../../components/responses/validation_failed.yaml"
+    '500':
+      $ref: "../../../components/responses/validation_failed.yaml"

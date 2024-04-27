@@ -1,0 +1,29 @@
+server:
+  port: 18080
+  tomcat:
+    remoteip:
+      protocol-header: x-forwarded-proto
+  shutdown: graceful
+spring:
+  application:
+    name: base-api
+  session:
+    store-type: REDIS
+    persistent: true
+  redis:
+    host: ${REDIS_HOST:localhost}
+    port: ${REDIS_PORT:26379}
+    password: ${REDIS_PASSWORD:base-redis}
+    ssl: ${REDIS_SSL:false}
+  security:
+    # CORSを許可するURLを複数定義する場合はカンマ区切りにて定義
+    cors-client-urls: ${CORS_CLIENT_URLS:http://localhost:[*]}
+    hsts-on: ${HSTS_ON:false}
+  lifecycle:
+    timeout-per-shutdown-phase: 30s
+management:
+  endpoints:
+    web:
+      base-path: /api
+      path-mapping:
+        health: /healthz

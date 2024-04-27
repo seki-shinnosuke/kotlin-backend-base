@@ -1,0 +1,36 @@
+openapi: 3.1.0
+info:
+  title: "Base API"
+  version: "1.0"
+servers:
+  - url: "http://localhost:18080"
+
+tags:
+  - name: UserAuthentication
+    description: "ユーザー認証機能"
+  - name: UserSetting
+    description: "ユーザー設定機能"
+
+paths:
+  # ユーザー認証
+  /api/v1/user/login:
+    $ref: "./paths/v1/user/login.yaml"
+  /api/v1/user/logout:
+    $ref: "./paths/v1/user/logout.yaml"
+
+  # ユーザー設定
+  /api/v1/user/info:
+    $ref: "./paths/v1/user/info.yaml"
+
+components:
+  securitySchemes:
+    authenticationStatus:
+      description: "ログイン状態"
+      type: apiKey
+      in: cookie
+      name: SESSION_ID
+    authority:
+      description: "ユーザー権限"
+      type: apiKey
+      in: cookie
+      name: SESSION_ID

@@ -1,0 +1,9 @@
+post:
+  summary: "ログアウト"
+  description: "ログアウトする"
+  operationId: "postUserLogout"
+  tags:
+    - UserAuthentication
+  responses:
+    '200':
+      description: "OK"

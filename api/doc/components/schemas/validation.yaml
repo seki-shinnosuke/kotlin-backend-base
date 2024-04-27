@@ -1,0 +1,8 @@
+title: Validation
+type: object
+required:
+  - message
+properties:
+  message:
+    type: string
+    example: "Validation or business message."

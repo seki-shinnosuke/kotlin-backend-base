@@ -1,0 +1,5 @@
+description: Failed
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/validation.yaml

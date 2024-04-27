@@ -1,0 +1,36 @@
+post:
+  summary: "ログイン(ID/PASS)"
+  description: "ログインする"
+  operationId: "postUserLogin"
+  tags:
+    - UserAuthentication
+  requestBody:
+    content:
+      'application/json':
+        schema:
+          type: object
+          required:
+            - clientUserLoginId
+            - password
+          properties:
+            clientUserLoginId:
+              type: string
+              description: "クライアントユーザーログインID"
+              maxLength: 50
+              example: "base"
+            password:
+              type: string
+              description: "パスワード"
+              pattern: "(0-9a-zA-Z-!#$@_)"
+              minLength: 6
+              maxLength: 32
+              example: "password#"
+  responses:
+    '200':
+      description: "OK"
+    '400':
+      $ref: "../../../components/responses/validation_failed.yaml"
+    '422':
+      $ref: "../../../components/responses/validation_failed.yaml"
+    '500':
+      $ref: "../../../components/responses/validation_failed.yaml"

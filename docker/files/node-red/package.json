@@ -1,0 +1,11 @@
+{
+  "name": "node-red-contrib-base-node",
+  "version": "1.0.0",
+  "description": "自身のフローが必要とする追加ノードを追加",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
