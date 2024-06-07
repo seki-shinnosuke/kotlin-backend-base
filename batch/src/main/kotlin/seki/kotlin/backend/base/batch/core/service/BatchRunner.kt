@@ -13,9 +13,9 @@ class BatchRunner(
     private val batchContext: BatchContext,
     private val batchService: BatchService,
 ) {
-    fun run() {
+    fun run(vararg args: String?) {
         msgLogger.msg(MsgLogId.BATCH_LOG_00001, "${batchContext.batchId}:${batchContext.batchName}")
-
+        batchContext.args = args.asList()
         // バッチ制御から多重起動確認を行い起動中の場合は処理を起動を終了させる(BatchRunnerがDIに対応していないためbatchContextからMapperを取得)
         val batchStartControl = batchContext.batchStartControlMapper.selectByPrimaryKey(batchContext.batchId)
         batchStartControl?.run {

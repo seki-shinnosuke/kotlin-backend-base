@@ -47,7 +47,6 @@ class BatchApplication(
     }
 
     override fun run(vararg args: String?) {
-        batchContext.args = args.asList()
         batchContext.validate()
     }
 

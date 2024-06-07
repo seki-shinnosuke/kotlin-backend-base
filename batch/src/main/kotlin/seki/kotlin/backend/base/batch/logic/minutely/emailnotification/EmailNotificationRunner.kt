@@ -13,7 +13,7 @@ class EmailNotificationRunner(
     private val runner: BatchRunner,
 ) : CommandLineRunner {
     override fun run(vararg args: String?) {
-        runner.run()
+        runner.run(*args)
     }
 
     @Configuration
