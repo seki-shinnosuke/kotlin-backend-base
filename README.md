@@ -48,7 +48,7 @@ https://pleiades.io/help/idea/sdk.html#set-up-jdk
 ```
 
 ### Tips
-ローカル環境でapiおよびbatchの実行はIntelliJからのでバック実行を想定していますが  
+ローカル環境でapiおよびbatchの実行はIntelliJからのデバッグ実行を想定していますが  
 コンテナ化と起動を試したい場合はmakeコマンドを利用してください  
 ```
 # API実行
