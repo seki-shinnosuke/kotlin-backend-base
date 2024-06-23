@@ -7,9 +7,10 @@ import org.springframework.boot.logging.LogLevel
  */
 enum class MsgLogId(val logLevel: LogLevel, val message: String) {
     // Common
+    COMMON_LOG_00001(LogLevel.WARN, "Log."),
 
     // API
-    API_LOG_00001(LogLevel.WARN, "Not Login"),
+    API_LOG_00001(LogLevel.WARN, "Not Login."),
     API_LOG_00002(LogLevel.WARN, "Bad parameter. {}"),
     API_LOG_00003(LogLevel.WARN, "Authorization is not defined. method={}"),
     API_LOG_00004(LogLevel.WARN, "Authority is not defined. method={}"),

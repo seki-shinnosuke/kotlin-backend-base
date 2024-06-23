@@ -38,8 +38,8 @@ https://pleiades.io/help/idea/sdk.html#set-up-jdk
 
 #### 5.Docker image build
 ```
-% docker-compose build
-% docker-compose up -d
+% make install
+% make run
 ```
 
 #### 6.RDB setup

@@ -58,7 +58,7 @@ internal class MsgLoggerTest : BaseCommonTestBase() {
         verify(mockAppender, times(2)).doAppend(captorLoggingEvent.capture())
         val logEvents = captorLoggingEvent.allValues
         Assertions.assertEquals(logEvents[0].level, Level.WARN)
-        Assertions.assertEquals(logEvents[0].formattedMessage, "[API_LOG_00001]:Not Login")
+        Assertions.assertEquals(logEvents[0].formattedMessage, "[API_LOG_00001]:Not Login.")
         Assertions.assertEquals(logEvents[1].level, Level.WARN)
         Assertions.assertEquals(logEvents[1].formattedMessage, "[API_LOG_00002]:Bad parameter. info")
     }
